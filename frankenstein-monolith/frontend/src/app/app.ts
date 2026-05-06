@@ -15,7 +15,7 @@ import { AuthorListComponent } from './components/author-list/author-list';
       <app-author-list></app-author-list>
       
       <footer class="footer">
-        <p>LABORATÓRIO DE DEVOPS & ARQUITETURA - STATUS: AGUARDANDO REFATORAÇÃO</p>
+        <p>LABORATÓRIO DE BACKEND AVANÇADO - SPRING BOOT</p>
       </footer>
     </main>
   `,
