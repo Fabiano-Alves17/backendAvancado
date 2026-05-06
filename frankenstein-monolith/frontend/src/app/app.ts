@@ -9,7 +9,6 @@ import { AuthorListComponent } from './components/author-list/author-list';
     <main>
       <nav class="glass-nav">
         <div class="logo">FRANKENSTEIN <span>MONOLITH</span></div>
-        <div class="status-badge">API: DISCONNECTED</div>
       </nav>
       
       <app-author-list></app-author-list>
