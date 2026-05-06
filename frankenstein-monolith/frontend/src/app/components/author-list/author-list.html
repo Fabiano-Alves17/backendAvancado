@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="header">
+    <h1>Author Management</h1>
+    <p class="subtitle">Hexagonal Design System</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-glass">
+    <span class="icon">⚠️</span> {{ errorMessage }}
+  </div>
+
+  <div *ngIf="loading" class="loader">
+    <div class="spinner"></div>
+    <p>Connecting to backend...</p>
+  </div>
+
+  <div class="grid" *ngIf="!loading">
+    <div class="glass-card author-card" *ngFor="let author of authors">
+      <div class="card-content">
+        <h3>{{ author.name }}</h3>
+        <p class="cpf">CPF: {{ author.cpf }}</p>
+        <p class="income">Income: {{ author.annualIncome | currency }}</p>
+      </div>
+      <div class="actions">
+        <button class="btn-delete" (click)="deleteAuthor(author.id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
