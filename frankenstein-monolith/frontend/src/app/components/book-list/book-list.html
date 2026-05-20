@@ -1,24 +1,35 @@
 <div class="container">
-    <div class="header">
-        <h1>Book Management</h1>
-        <p class="subtitle">Hexagonal Design System - v1.0.0</p>
-    </div>
+  <div class="header">
+    <h1>Book Management</h1>
+    <p class="subtitle">Lista de livros cadastrados</p>
+  </div>
 
-    <div *ngIf="errorMessage" class="error-glass">
-        <div class="error-icon">❌</div>
-        <div class="error-text">
-            <strong>CONNECTION ERROR</strong>
-            <p>{{ errorMessage }}</p>
-        </div>
+  <div *ngIf="errorMessage" class="error-glass">
+    <div class="error-icon">❌</div>
+    <div class="error-text">
+      <strong>CONNECTION ERROR</strong>
+      <p>{{ errorMessage }}</p>
     </div>
+  </div>
 
-    <!-- Skeletons (Placeholders) -->
-    <div class="grid">
-        <div class="glass-card skeleton-card" *ngFor="let i of [1,2,3,4,5,6]">
-            <div class="skeleton-line title"></div>
-            <div class="skeleton-line text"></div>
-            <div class="skeleton-line text short"></div>
-            <div class="skeleton-btn"></div>
-        </div>
+  <div class="grid" *ngIf="!errorMessage && books.length > 0">
+    <div class="glass-card author-card" *ngFor="let book of books">
+      <div class="card-content">
+        <h3>{{ book.title }}</h3>
+
+        <p class="cpf">
+          ID: {{ book.id }}
+        </p>
+
+        <p class="income">
+          Autor: {{ book.authorName || 'Autor não informado' }}
+        </p>
+      </div>
     </div>
+  </div>
+
+  <div class="loader" *ngIf="!errorMessage && books.length === 0">
+    <div class="spinner"></div>
+    <p>Nenhum livro encontrado.</p>
+  </div>
 </div>

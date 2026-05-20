@@ -1,3 +1,14 @@
+
+## Aluno: Fabiano de Melo Alves Filho
+
+## Matrícula: 2024211880057
+
+Oi professor, aqui é Fabiano.
+
+
+
+___________________________________________________________
+
 # 🔍 Atividade: O Diagnóstico do Monolito "Frankenstein"
 
 Bem-vindo ao Monolito Frankenstein! Este projeto foi construído com diversas falhas conceituais propositais. Seu objetivo é identificar, diagnosticar e refatorar o código seguindo as melhores práticas de mercado: **SOLID**, **Arquitetura Hexagonal** e **TDD**.

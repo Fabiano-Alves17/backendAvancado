@@ -1,39 +1,34 @@
 package com.example.frankenstein.controller;
 
-import com.example.frankenstein.model.Author;
-import com.example.frankenstein.repository.AuthorRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.frankenstein.dto.AuthorRequest;
+import com.example.frankenstein.dto.AuthorResponse;
+import com.example.frankenstein.service.AuthorService;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
 @RequestMapping("/authors")
 public class AuthorController {
 
-    @Autowired
-    private AuthorRepository repository;
+    private final AuthorService service;
+
+    public AuthorController(AuthorService service) {
+        this.service = service;
+    }
 
     @GetMapping
-    public List<Author> listAll() {
-        return repository.findAll();
+    public List<AuthorResponse> listAll() {
+        return service.listAll();
     }
 
     @PostMapping
-    public Author save(@RequestBody Author author) {
-        if (author.getCpf() == null || author.getCpf().length() != 11) {
-            throw new RuntimeException("CPF Inválido!");
-        }
-        if (author.getAnnualIncome() > 50000) {
-            author.setAnnualIncome(author.getAnnualIncome() * 0.85);
-        } else {
-            author.setAnnualIncome(author.getAnnualIncome() * 0.93);
-        }
-
-        return repository.save(author);
+    public AuthorResponse save(@RequestBody AuthorRequest request) {
+        return service.save(request);
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
-        repository.deleteById(id);
+        service.delete(id);
     }
 }

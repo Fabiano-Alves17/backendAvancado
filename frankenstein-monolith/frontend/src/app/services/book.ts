@@ -1,19 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Author } from './author';
 
 export interface Book {
     id?: number;
     title: string;
-    author: Author;
+    authorName?: string;
 }
 
 @Injectable({
     providedIn: 'root'
 })
 export class BookService {
-    private apiUrl = 'http://localhost:8080/api/v1/books'; // Redesigned path
+    private apiUrl = 'http://localhost:8080/api/v1/books';
 
     constructor(private http: HttpClient) { }
 
